@@ -1,0 +1,14 @@
+#!/bin/bash
+# init
+set -o errexit
+cd /tmp
+if [ ! -e libs ]; then mkdir libs; fi
+# get phantom
+./wget https://s3.amazonaws.com/lambdaws-libs/phantomjs/phantomjs-1.9.6.tar.bz
+# unzip
+tar -C libs -xjf phantomjs-1.9.6.tar.bz
+# install
+cp libs/phantomjs-1.9.6-linux-x86_64/bin/phantomjs /tmp/libs/phantomjs
+# cleanup
+rm -rf /tmp/libs/phantomjs-1.9.6-linux-x86_64
+rm phantomjs-1.9.6.tar.bz
